@@ -1,7 +1,122 @@
-# Hello, world!
+# Code Sagas JS Run Book
+### By bcbrian and Stone
 
-This is **markdown** with <span style={{color: "red"}}>JSX</span>: MDX!
+## How to Store Info
+
+Create all variables as `const` then if you find that you need to change it then change `const` to `let`.
+Or just always use `let` and deal with the concequences... thats a joke...
+
 
 ```js
-const a = 3;
+const name = "never changes"; // we do not intend to change this value
+let otherName = "could change"; // we intend to change this value
+
+// ie
+
+name = "I thought we were not changing"; // this will break
+otherName = "Yup I change it"; // this will work
+// const === constant
+// let === let me change it later
+
+// I see this every where
+var thing = "what is this"; // pretend it is const or let
+// this is the old way...
+// be like the rest of the cool kids and
+// do not use this :P
+
+```
+
+### Types of info
+
+```js
+//simple
+const a = 3; // storing the number 3
+const b = "hi"; // storing the string "hi"
+const c = true; // storing a boolean true/false, on/off, yes/no
+
+// complex
+const foods = ["taco", "hamburger", "hotdog"]; // list of things
+const numberOfFoods = foods.length
+
+const car = { // an object and info about it
+  make: "ferrari",
+  model: "la ferrari",
+  year: 2010,
+  color: "ferrari red"
+}
+const carName = car.model;
+```
+
+## How to Keep it DRY(Dont Repeat Yourself)
+
+### Functions are a way
+
+```js
+// basic
+function mySpecialFunction() {
+  // do something cool!
+}
+// returns will stop execution
+function returns(){
+  // some code here
+  alert("You will see me");
+  return;
+  alert("You wont see me");
+  // and code here won't run
+}
+
+// returns will send info back if provided
+function sum(oneParam, twoParam){
+  return oneParam + twoParam
+}
+// this way 
+const six = sum(3, 3)
+alert(six); // 6
+// this way ... samesies
+let oneParam = 3;
+let twoParam = 3;
+const answer = sum(oneParam, twoParam)
+alert(answer); // 6
+
+let oneParam = 21;
+let twoParam = 21;
+const answerTwo = sum(oneParam, twoParam)
+alert(answer); // 42 it is always the right answer...
+
+```
+
+## Conditions
+```js
+if(true){// any condition that is true ie 3 === 3
+  // do this
+}
+```
+## Loops
+```js
+for (let index = 0; index < array.length; index++) {
+  const element = array[index];
+  // do stuff with element
+}
+```
+
+## Working with HTML / CSS
+```html
+<input id="input" />
+<div id="msg">wont be here long</div>
+<button onclick="handleClick()">click bait</button>
+```
+```js
+const inputElem = document.getElementById("input");
+const msgElem = document.getElementById("msg");
+
+// get the users value
+const userValue = inputElem.value;
+
+// change the divs content
+msgElem.innerHTML = "something else now";
+
+// run this on click
+function handleClick(){
+ alert("hi");
+}
 ```
