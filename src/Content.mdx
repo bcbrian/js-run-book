@@ -1,6 +1,8 @@
 # Code Sagas JS Run Book
 ### By bcbrian and Stone
 
+## debugging section needed!
+
 ## How to Store Info
 
 Create all variables as `const` then if you find that you need to change it then change `const` to `let`.
@@ -26,17 +28,17 @@ var thing = "what is this"; // pretend it is const or let
 
 ```
 
-### Types of info
+### Types of info AKA Variables
 
 ```js
-//simple
+//simple, (primative)
 const a = 3; // storing the number 3
 const b = "hi"; // storing the string "hi"
 const c = true; // storing a boolean true/false, on/off, yes/no
 
 // complex
 const foods = ["taco", "hamburger", "hotdog"]; // list of things
-const numberOfFoods = foods.length
+const numberOfFoods = foods.length // -> 3
 
 const car = { // an object and info about it
   make: "ferrari",
@@ -44,7 +46,7 @@ const car = { // an object and info about it
   year: 2010,
   color: "ferrari red"
 }
-const carName = car.model;
+const carName = car.model; // la ferrari
 ```
 
 ## How to Keep it DRY(Dont Repeat Yourself)
@@ -56,6 +58,7 @@ const carName = car.model;
 function mySpecialFunction() {
   // do something cool!
 }
+mySpecialFunction(); // execute order 626
 // returns will stop execution
 function returns(){
   // some code here
@@ -82,22 +85,72 @@ let oneParam = 21;
 let twoParam = 21;
 const answerTwo = sum(oneParam, twoParam)
 alert(answer); // 42 it is always the right answer...
+```
+### Arrow Functions
+They 90% the same as above just use less letters to write and have an option to do an implicit return.
+> 10% difference coming later 
 
+```js
+// implicit return
+const sum = (oneParam, twoParam) => oneParam + twoParam 
+// not implicit return
+const sum = (oneParam, twoParam) => {
+  return oneParam + twoParam
+} 
 ```
 
 ## Conditions
+### If Statements
 ```js
 if(true){// any condition that is true ie 3 === 3
   // do this
 }
+
+if(false){// any condition that is false ie 3 !== 3
+} else {
+  // do this
+}
 ```
+### Ternaries
+```js
+// condition ? if true this : else this
+true ? /* Do this */ : /* Not This */
+false ? /* Not this */ : /* Do This */
+```
+### Switch Statements
+> Coming to a website near you.
+
 ## Loops
+### Forloop
+Loop for a specified duration
 ```js
 for (let index = 0; index < array.length; index++) {
   const element = array[index];
   // do stuff with element
 }
 ```
+
+### Array Methods
+#### Array.map
+
+This is a method that loops and operates on one array element at a time. When it is all done it returs a new array based on what each iteration returned.
+```js
+/**
+ * const people = [{
+ *   age: 23,
+ *   heigh: 6,
+ *   weight: 197
+ * }, ...]
+ * */
+
+const ages = people.map((person) => person.age);
+
+/**
+ * ages = [23, ...]
+ */
+```
+
+
 
 ## Working with HTML / CSS
 ```html
