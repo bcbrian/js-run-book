@@ -42,9 +42,12 @@ const car = { // an object and info about it
   make: "ferrari",
   model: "la ferrari",
   year: 2010,
-  color: "ferrari red"
+  color: "ferrari red",
+  mileage: 1234,
+  getMileage: function () { return this.mileage }, // this === car -> true
 }
-const carName = car.model; // la ferrari
+const carName = car.model; // la ferrari (property and valye)
+const mileage = car.getMileage(); // 1234 (executing a method)
 ```
 
 ## How to Keep it DRY(Dont Repeat Yourself)
@@ -82,11 +85,11 @@ alert(answer); // 6
 let oneParam = 21;
 let twoParam = 21;
 const answerTwo = sum(oneParam, twoParam)
-alert(answer); // 42 it is always the right answer...
+alert(answerTwo); // 42 it is always the right answer...
 ```
 ### Arrow Functions
 They 90% the same as above just use less letters to write and have an option to do an implicit return.
-> 10% difference coming later 
+> 10% difference coming later - Hint: this...
 
 ```js
 // implicit return
@@ -97,7 +100,7 @@ const sum = (oneParam, twoParam) => {
 } 
 ```
 
-## Conditions
+## Conditionals
 ### If Statements
 ```js
 if(true){// any condition that is true ie 3 === 3
@@ -110,13 +113,46 @@ if(false){// any condition that is false ie 3 !== 3
 }
 ```
 ### Ternaries
+> please do not nest these `t?t?t:t:t`
 ```js
 // condition ? if true this : else this
 true ? /* Do this */ : /* Not This */
 false ? /* Not this */ : /* Do This */
 ```
 ### Switch Statements
-> Coming to a website near you.
+```js
+switch(value){
+  case true:{
+    // if
+    break
+  }
+  case false: {
+    // else if
+    break
+  }
+  default:{
+    // else
+
+  }
+}
+```
+### Conditions
+```js
+if(true){} // pass
+if(true === true){} // pass
+if(true === true && false !== true){} // pass
+if(true !== true || false !== true){} // pass
+
+const value = null; // undefined || 0 || false || ""
+if(!value){} // pass
+
+const value = "any string"; // 122312 || -1231234 || true 
+if(value){} // pass
+if(!!value){} // pass
+
+if(null || true){} // pass
+if(!null && true){} // pass
+```
 
 ## Loops
 ### Forloop
@@ -142,13 +178,36 @@ This is a method that loops and operates on one array element at a time. When it
  * */
 
 const ages = people.map((person) => person.age);
+const ages = boxes.map((box) => box.age);
+const ages = letters.map((letter) => letter.age);
+const ages = a.map((b) => b.age);
+const ages = plural.map((singular) => singular.age);
+const ages = elephants.map((e) => e.age);
 
 /**
  * ages = [23, ...]
  */
 ```
+These below all have the same api and iterate but return something different
+> Use "js mdn array [every]" in google to learn more :P 
+##### Array.every
+##### Array.some
+##### Array.filter
 
 
+## WHAT IS THIS
+
+## Debugging
+### console.log (amatuer)
+If you dont know what is going on console.log all the things
+```
+console.log("a", "test"==true, 0==false, 0===false); // "a",true,true,false
+```
+### debugger (pro)
+this will pause the code if the debugging tools are open
+```
+debugger;
+```
 
 ## Working with HTML / CSS
 ```html
@@ -171,4 +230,4 @@ function handleClick(){
  alert("hi");
 }
 ```
-## Debugging TODO this
+
